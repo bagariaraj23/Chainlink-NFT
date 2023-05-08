@@ -44,7 +44,7 @@ module.exports = {
       accounts: [process.env.PKEY],
     },
     mumbai: {
-      url: "https://eth-mainnet.g.alchemy.com/v2/" + process.env.ALCHEMY_KEY,
+      url: "https://polygon-mumbai.g.alchemy.com/v2/"+ process.env.ALCHEMY_KEY,
       gas: 10000000,
       accounts: [process.env.PKEY],
     },
