@@ -1,9 +1,9 @@
 export const muiTheme = {
   button: {
     defaultProps: {
-      color: "purple",
+      color: "primary",
       size: "lg",
-      variant: "filled",
+      variant: "outlined",
     },
     styles: {
       sizes: {
