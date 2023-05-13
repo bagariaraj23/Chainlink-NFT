@@ -64,7 +64,7 @@ contract NftFactory  {
         uint revenue = msg.value * 10 / 100;
 
         
-        (bool sent,bytes memory data) = to.call{value:msg.value - revenue}("");
+        (bool sent,bytes memory data) = NftToProvider[_nft].call{value:msg.value - revenue}("");
         require(sent,"Tx Failed");
         
 
