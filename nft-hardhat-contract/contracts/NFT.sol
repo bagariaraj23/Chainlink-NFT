@@ -7,57 +7,49 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-
-contract NFT is ERC721, Ownable,ERC721URIStorage, ERC721Burnable {
+contract NFT is ERC721, Ownable, ERC721URIStorage, ERC721Burnable {
     using Counters for Counters.Counter;
 
-    event Attest(address indexed to, uint256 indexed tokenId );
-    event Revoke(address indexed to, uint256 indexed tokenId );
-
-
-
+    event Attest(address indexed to, uint256 indexed tokenId);
+    event Revoke(address indexed to, uint256 indexed tokenId);
 
     Counters.Counter private _tokenIdCounter;
 
     uint256 public totalSupply = 0;
     uint256 public supplyLimit = 0;
 
-    constructor(string memory name,string memory symbol,uint256 _supplyLimit) ERC721(name, symbol) {
+    constructor(
+        string memory name,
+        string memory symbol,
+        uint256 _supplyLimit
+    ) ERC721(name, symbol) {
         supplyLimit = _supplyLimit;
-       
     }
 
-    
     function safeMint(address to) public onlyOwner {
-        require(supplyLimit > totalSupply,"All Sold"); // when token count reach the max supply
-        require(balanceOf(to) == 0,"already have token"); // think when one user can mint only one token
+        require(supplyLimit > totalSupply, "All Sold"); // when token count reach the max supply
+        require(balanceOf(to) == 0, "already have token"); // think when one user can mint only one token
 
         uint256 tokenId = _tokenIdCounter.current();
-        
+
         _tokenIdCounter.increment();
         totalSupply += 1;
         _safeMint(to, tokenId);
     }
 
-
-
-
-
-
-    function remainigNftsToBeSold() external view returns(uint256) {
+    function remainigNftsToBeSold() external view returns (uint256) {
         return supplyLimit - totalSupply;
     }
 
-
-    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
+    function _burn(
+        uint256 tokenId
+    ) internal override(ERC721, ERC721URIStorage) {
         super._burn(tokenId);
     }
 
-    function revoke(uint256 tokenId) external onlyOwner{
+    function revoke(uint256 tokenId) external onlyOwner {
         _burn(tokenId);
-
     }
-
 
     /**
      * @dev Hook that is called before any token transfer. This includes minting and burning. If {ERC721Consecutive} is
@@ -73,12 +65,17 @@ contract NFT is ERC721, Ownable,ERC721URIStorage, ERC721Burnable {
      *
      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
      */
-    function _beforeTokenTransfer(address from, address to, uint256 firstTokenId, uint256 batchSize) internal override virtual {
-        require(from == address(0) || to == address(0),"token cannot transfer");
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 /*firstTokenId*/,
+        uint256 /*batchSize*/
+    ) internal virtual override {
+        require(
+            from == address(0) || to == address(0),
+            "token cannot transfer"
+        );
     }
-
-
-
 
     /**
      * @dev Hook that is called after any token transfer. This includes minting and burning. If {ERC721Consecutive} is
@@ -94,31 +91,22 @@ contract NFT is ERC721, Ownable,ERC721URIStorage, ERC721Burnable {
      *
      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
      */
-    function _afterTokenTransfer(address from, address to, uint256 firstTokenId, uint256 batchSize) internal override virtual {
-
-        if(from == address(0)){
-           emit Attest(to, firstTokenId);
+    function _afterTokenTransfer(
+        address from,
+        address to,
+        uint256 firstTokenId,
+        uint256 /*batchSize*/
+    ) internal virtual override {
+        if (from == address(0)) {
+            emit Attest(to, firstTokenId);
+        } else if (to == address(0)) {
+            emit Revoke(to, firstTokenId);
         }
-        else if(to == address(0)){
-           emit Revoke(to, firstTokenId);
-        }
-
     }
 
-
-
-
-
-    function tokenURI(uint256 tokenId)
-        public
-        view
-        override(ERC721, ERC721URIStorage)
-        returns (string memory)
-    {
+    function tokenURI(
+        uint256 tokenId
+    ) public view override(ERC721, ERC721URIStorage) returns (string memory) {
         return super.tokenURI(tokenId);
     }
-
-
-
-    
 }
