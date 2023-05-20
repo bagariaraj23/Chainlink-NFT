@@ -11,3 +11,30 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
+
+## How to Deploy Scripts
+
+**First** run
+
+```
+npx hardhat node --network hardhat
+```
+
+**Second** run
+
+```
+npx hardhat run deploy/Mocks/MockUsd.js --network localhost
+```
+
+**Then** run
+
+```
+npx hardhat run deploy/Mocks/MockV3Aggregator.js --network localhost
+```
+
+**Lastly** 
+```
+npx hardhat run deploy/NFTfactory.js --network localhost
+```
+
+All the deploy scripts will work and the addresses will be stored in ```./deployedAddress.txt```
