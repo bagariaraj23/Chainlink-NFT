@@ -8,21 +8,25 @@ import { useEffect } from "react";
 function App() {
   useEffect(() => {
     localStorage.setItem("theme", "light");
+    let theme = localStorage.getItem("theme");
+    console.log("theme: " + theme);
+    const prefer = window.matchMedia("(prefers-color-scheme)");
+    console.log("prefer: " + prefer);
     if (
-      localStorage.theme === "dark" ||
+      theme === "dark" ||
       (!("theme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
-      document.documentElement.classList.add("dark");
+      document.body.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark");
+      document.body.classList.remove("dark");
     }
 
     // Whenever the user explicitly chooses light mode
-    localStorage.theme = "light";
+    theme = "light";
 
     // Whenever the user explicitly chooses dark mode
-    localStorage.theme = "dark";
+    theme = "dark";
 
     // Whenever the user explicitly chooses to respect the OS preference
     localStorage.removeItem("theme");

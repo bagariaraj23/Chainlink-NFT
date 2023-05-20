@@ -25,6 +25,7 @@ module.exports = withMT({
     extend: {
       colors: {
         primary: {
+          DEFAULT: "#FF008E",
           50: "#FFE5F4",
           100: "#FFCCE8",
           200: "#FF99D1",
@@ -49,6 +50,10 @@ module.exports = withMT({
           800: "#075985",
           900: "#0c4a6e",
         },
+      },
+      screens: {
+        xl: "1200px",
+        "2xl": "1600px",
       },
     },
   },

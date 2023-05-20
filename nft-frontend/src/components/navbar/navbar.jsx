@@ -18,8 +18,10 @@ export default function CustomNavbar() {
     console.log(isDarkMode);
     if (isDarkMode) {
       document.body.classList.add("dark");
+      localStorage.setItem("darkMode", true);
     } else {
       document.body.classList.remove("dark");
+      localStorage.removeItem("darkMode");
     }
   };
   // dark mode config end
@@ -32,19 +34,19 @@ export default function CustomNavbar() {
   }, []);
 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:gap-6">
+    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:gap-6 text-black dark:text-white">
       <Typography as="li" variant="small" className="p-1 font-normal">
-        <a href="/explore" className="flex items-center">
+        <a href="/explore" className="flex items-center justify-center">
           Explore
         </a>
       </Typography>
       <Typography as="li" variant="small" className="p-1 font-normal">
-        <a href="/create" className="flex items-center">
+        <a href="/create" className="flex items-center justify-center">
           Create
         </a>
       </Typography>
       <Typography as="li" variant="small" className="p-1 font-normal lg:mr-6">
-        <a href="/about" className="flex items-center">
+        <a href="/about" className="flex items-center justify-center">
           About
         </a>
       </Typography>
@@ -52,12 +54,12 @@ export default function CustomNavbar() {
   );
 
   return (
-    <Navbar className="sticky py-2 px-4 lg:px-8 lg:py-4 dark:bg-black">
-      <div className="container mx-auto flex items-center sm:justify-start text-blue-gray-900 dark:text-white">
+    <Navbar className="sticky py-2 px-4 lg:px-8 lg:py-4 dark:bg-black dark:border-gray-dark">
+      <div className="container mx-auto flex items-center justify-end text-blue-gray-900 dark:text-white">
         <Typography
           as="a"
           href="/"
-          className="mr-4 cursor-pointer py-1.5 font-medium mr-auto"
+          className="cursor-pointer py-1.5 font-medium mr-auto"
         >
           Hackathon
         </Typography>
@@ -71,7 +73,7 @@ export default function CustomNavbar() {
         <Button
           variant="gradient"
           size="md"
-          className="hidden lg:inline-block bg-primary-500"
+          className="hidden lg:inline-block sm:bg-primary"
         >
           <span>Connect Wallet</span>
         </Button>
@@ -117,7 +119,12 @@ export default function CustomNavbar() {
         <div className="container mx-auto">
           {navList}
 
-          <Button variant="gradient" size="sm" fullWidth className="mb-2">
+          <Button
+            variant="gradient"
+            size="sm"
+            fullWidth
+            className="mb-2 bg-primary"
+          >
             <span>Connect Wallet</span>
           </Button>
         </div>
