@@ -4,13 +4,7 @@ import mcdonalds from "../assets/mcdonalds.png";
 import airlines from "../assets/american airlines.png";
 import spotify from "../assets/spotify.png";
 import emirates from "../assets/emirates.png";
-import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  Typography,
-} from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
 import TrendingNFT from "../components/home page comp/trending";
 import Partner from "../components/home page comp/partner";
 
