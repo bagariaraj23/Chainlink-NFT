@@ -9,7 +9,7 @@ import Partner from "../components/home page comp/partner";
 
 const Home = () => {
   return (
-    <div className="flex px-10 flex-col py-4">
+    <div className="flex px-10 flex-col py-4 2xl:p-48 2xl:items-center">
       <div className="md:flex md:flex-row sm:flex sm:flex-col">
         <div className="md:w-2/4 px-4">
           <img src={cards} alt="cards" className="object-contain" />
@@ -37,11 +37,11 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="sm:my-0 md:my-4 flex flex-col items-center ">
+      <div className="sm:my-0 md:my-4 flex flex-col items-center w-full ">
         <h2 className="sm:text-2xl md:text-xl lg:text-3xl font-bold text-black dark:text-white my-4">
           Partners
         </h2>
-        <div className="grid sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 sm:gap-16 lg:gap-4 w-full mx-auto grid-flow-row">
+        <div className="grid sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 sm:gap-4 lg:gap-4 2xl:gap-8 w-full mx-auto grid-flow-row">
           <Partner
             image={mcdonalds}
             imageAlt={"McDonalds"}
@@ -64,7 +64,7 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col items-center my-10">
+      <div className="flex flex-col items-center my-10 w-full">
         <h2 className="sm:text-2xl md:text-xl lg:text-3xl font-bold text-black dark:text-white my-4">
           Trending memberships
         </h2>

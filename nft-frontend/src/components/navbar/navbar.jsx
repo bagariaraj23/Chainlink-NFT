@@ -118,7 +118,6 @@ export default function CustomNavbar() {
       <Collapse open={openNav}>
         <div className="container mx-auto">
           {navList}
-
           <Button
             variant="gradient"
             size="sm"
