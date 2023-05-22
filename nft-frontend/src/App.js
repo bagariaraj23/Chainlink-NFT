@@ -4,6 +4,7 @@ import CustomNavbar from "./components/navbar/navbar";
 import { BrowserRouter as Router } from "react-router-dom";
 import MyRoutes from "./routers/routes";
 import { useEffect } from "react";
+import Footer from "./components/footer/footer";
 
 function App() {
   useEffect(() => {
@@ -35,6 +36,7 @@ function App() {
     <Router>
       <CustomNavbar />
       <MyRoutes />
+      <Footer />
     </Router>
   );
 }

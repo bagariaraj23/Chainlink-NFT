@@ -3,7 +3,6 @@ import cards from "../assets/cards.png";
 import mcdonalds from "../assets/mcdonalds.png";
 import airlines from "../assets/american airlines.png";
 import spotify from "../assets/spotify.png";
-import emirates from "../assets/emirates.png";
 import { Button } from "@material-tailwind/react";
 import TrendingNFT from "../components/home page comp/trending";
 import Partner from "../components/home page comp/partner";
@@ -31,7 +30,7 @@ const Home = () => {
             <Button variant="filled" className="bg-primary">
               Explore
             </Button>
-            <div className="sm:my-4 sm:mx-0 md:my-0 md:mx-4 md:inline"></div>
+            <div className="sm:my-2 sm:mx-0 md:my-0 md:mx-4 md:inline"></div>
             <Button variant="outlined" className="text-black dark:text-white">
               Create
             </Button>
@@ -39,7 +38,7 @@ const Home = () => {
         </div>
       </div>
       <div className="sm:my-0 md:my-4 flex flex-col items-center ">
-        <h2 className="sm:text-2xl md:text-xl lg:text-3xl font-bold text-black dark:text-white">
+        <h2 className="sm:text-2xl md:text-xl lg:text-3xl font-bold text-black dark:text-white my-4">
           Partners
         </h2>
         <div className="grid sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 sm:gap-16 lg:gap-4 w-full mx-auto grid-flow-row">
@@ -65,8 +64,8 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col items-center">
-        <h2 className="sm:text-2xl md:text-xl lg:text-3xl font-bold text-black dark:text-white my-2">
+      <div className="flex flex-col items-center my-10">
+        <h2 className="sm:text-2xl md:text-xl lg:text-3xl font-bold text-black dark:text-white my-4">
           Trending memberships
         </h2>
         <div className="grid sm:grid-cols-1 md:grid-cols-2 sm:gap-16 lg:gap-4 w-full mx-auto grid-flow-row">
@@ -82,9 +81,9 @@ const Home = () => {
             name={"American Airlines"}
           />
           <TrendingNFT
-            image={emirates}
-            imageAlt={"Emirates"}
-            name={"Emirates"}
+            image={mcdonalds}
+            imageAlt={"McDonalds"}
+            name={"McDonalds"}
           />
         </div>
       </div>

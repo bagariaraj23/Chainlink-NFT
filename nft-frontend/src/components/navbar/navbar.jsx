@@ -59,16 +59,16 @@ export default function CustomNavbar() {
         <Typography
           as="a"
           href="/"
-          className="cursor-pointer py-1.5 font-medium mr-auto"
+          className="cursor-pointer py-1.5 font-extrabold mr-auto sm:text-xl md:text-2xl lg:text-3xl"
         >
-          Hackathon
+          Grandeur
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         <DarkModeSwitch
           checked={isDarkMode}
           onChange={toggleDarkMode}
           size={30}
-          className="mr-6"
+          className="lg:mr-6"
         />
         <Button
           variant="gradient"

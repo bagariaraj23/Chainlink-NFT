@@ -4,7 +4,7 @@ import { Card, CardBody, Typography } from "@material-tailwind/react";
 const TrendingNFT = ({ image, name, imageAlt }) => {
   return (
     <div className="flex justify-center">
-      <Card className="mt-6 w-96 dark:bg-primary-950">
+      <Card className="mt-6 dark:bg-primary-950 w-full">
         <CardBody className="flex flex-row">
           <div className="flex justify-center w-1/2">
             <img src={image} alt={imageAlt} className="object-contain" />
