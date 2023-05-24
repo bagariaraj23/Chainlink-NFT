@@ -17,6 +17,21 @@ module.exports = withMT({
       gray: "#8492a6",
       "gray-light": "#d3dce6",
     },
+    screens: {
+      sm: "300px",
+      // => @media (min-width: 640px) { ... }
+
+      // 'md': '768px',
+      // // => @media (min-width: 768px) { ... }
+
+      lg: "1040px",
+      // // => @media (min-width: 1024px) { ... }
+
+      // 'xl': '1280px',
+      // // => @media (min-width: 1280px) { ... }
+
+      "2xl": "1800px",
+    },
 
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
@@ -25,6 +40,7 @@ module.exports = withMT({
     extend: {
       colors: {
         primary: {
+          DEFAULT: "#FF008E",
           50: "#FFE5F4",
           100: "#FFCCE8",
           200: "#FF99D1",

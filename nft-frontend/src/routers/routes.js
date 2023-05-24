@@ -4,6 +4,7 @@ import Home from "../views/home";
 import About from "../views/about/about";
 import Explore from "../views/marketplace/explore";
 import CreateNFT from "../views/create NFT/createNFT";
+import DashBoard from "../views/dashboard/dashboard";
 
 const MyRoutes = () => {
   return (
@@ -12,6 +13,7 @@ const MyRoutes = () => {
       <Route path="/about" Component={About} />
       <Route path="/explore" Component={Explore} />
       <Route path="/create" Component={CreateNFT} />
+      <Route path="/dashboard" Component={DashBoard} />
     </Routes>
   );
 };
