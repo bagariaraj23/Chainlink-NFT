@@ -45,6 +45,11 @@ export default function CustomNavbar() {
           Create
         </a>
       </Typography>
+      <Typography as="li" variant="small" className="p-1 font-normal">
+        <a href="/dashboard" className="flex items-center justify-center">
+          Dashboard
+        </a>
+      </Typography>
       <Typography as="li" variant="small" className="p-1 font-normal lg:mr-6">
         <a href="/about" className="flex items-center justify-center">
           About
