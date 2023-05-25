@@ -1,0 +1,19 @@
+{
+  "name": "Dominos",
+  "description": "Dominos",
+  "image_data": "svg of img",
+  "external_url": "https://example.com/path/to/nft",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "blue",
+      "display_type": "boost_number | number | boost percentage | date"
+    },
+    {
+      "display_type": "date",
+      "trait_type": "expiry date",
+      "value": "2023-09-01"
+    }
+  ],
+  "background-color": "blue"
+}
