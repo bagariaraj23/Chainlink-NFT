@@ -32,6 +32,7 @@ contract NftFactory is Ownable {
     mapping(address nft => mapping(uint256 => ListedToken))
         private nftToTokenIdToListedTokenInfo;
     // right now we are supposing provider can only create NFt once, because if he create seconnd time the fist one address will replace
+    
     mapping(address => NFT) private ProviderToNft;
     mapping(address => address) private NftToProvider;
     mapping(address => uint) private NftToPrice;
@@ -133,10 +134,10 @@ contract NftFactory is Ownable {
         require(priceInUsd >= tokenInfo.price, "low price");
 
         uint256 revenue = (msg.value * 10) / 100;
-        (bool sentToSeller, bytes memory data) = tokenInfo.seller.call{
+        (bool sentToSeller, /*bytes memory data*/) = tokenInfo.seller.call{
             value: msg.value - revenue
         }("");
-        (bool sentToProvider, bytes memory _data) = tokenInfo
+        (bool sentToProvider, /*bytes memory _data*/) = tokenInfo
             .companyProvider
             .call{value: revenue / 2}("");
 
@@ -165,7 +166,7 @@ contract NftFactory is Ownable {
             ProviderToNft[NftToProvider[_nft]].ownerOf(tokenId) == seller,
             "you are not an owner"
         );
-        uint priceInUsd = PriceConverter.getConversionRate(_price, priceFeed);
+        // uint priceInUsd = PriceConverter.getConversionRate(_price, priceFeed);
         nftToTokenIdToListedTokenInfo[_nft][tokenId] = ListedToken(
             tokenId,
             payable(NftToProvider[_nft]),
